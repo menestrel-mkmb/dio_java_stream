@@ -13,8 +13,12 @@ public class Main {
         return (list.stream().filter(n -> n%2 == 0).toList()).stream().reduce(0, Integer::sum);
     }
 
-    public static boolean verificaSeTodosSaoPositivos(List<Integer> list) {
+    public static boolean verificaSeAlgumNegativo(List<Integer> list) {
         return list.stream().anyMatch(n -> n<0);
+    }
+
+    public static List<Integer> removerImpares(List<Integer> list) {
+        return list.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
@@ -22,6 +26,7 @@ public class Main {
 
         System.out.println(ordenaLista(numeros));
         System.out.println(somaParesLista(numeros));
-        System.out.println("Todos da lista são  positivos? " + (verificaSeTodosSaoPositivos(numeros) ? "Não" : "Sim"));
+        System.out.println("Todos da lista são  positivos? " + (verificaSeAlgumNegativo(numeros) ? "Não" : "Sim"));
+        System.out.println(removerImpares(numeros));
     }
 }
