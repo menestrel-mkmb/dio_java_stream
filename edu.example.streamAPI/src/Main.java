@@ -27,6 +27,10 @@ public class Main {
         return valor/list.size();
     }
 
+    public static boolean verificaMaior(List<Integer> list, int num) {
+        return list.stream().anyMatch(n -> n>num);
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -35,5 +39,6 @@ public class Main {
         System.out.println("Todos da lista são  positivos? " + (verificaSeAlgumNegativo(numeros) ? "Não" : "Sim"));
         System.out.println(removerImpares(numeros));
         System.out.println(calculaMedia(numeros.stream().filter(n -> n > 5).collect(toList())));
+        System.out.println("Algum item da lista é maior que 10? " + ((verificaMaior(numeros, 10)) ? "Sim" : "Não"));
     }
 }
