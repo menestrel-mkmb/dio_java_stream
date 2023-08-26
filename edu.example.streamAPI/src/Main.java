@@ -45,6 +45,10 @@ public class Main {
         return digitos;
     }
 
+    public static boolean todosDistintos(List<Integer> list) {
+        return list.stream().distinct().toList().size() == list.size();
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -57,5 +61,6 @@ public class Main {
         System.out.println("2º Número máximo: " + retornaMaximo(ordenaListaReverso(numeros).stream()
                                                                                 .skip(1).collect(toList())));
         System.out.println("Soma de todos os dígitos: " + somaTodosDigitos(numeros));
+        System.out.println("Todos são distintos? " + (todosDistintos(numeros) ? "Sim" : "Não"));
     }
 }
