@@ -109,6 +109,10 @@ public class Main {
         return Collections.frequency(list, list.get(0)) == list.size();
     }
 
+    public static List<Integer> divisiveis(List<Integer> list, int number) {
+        return list.stream().filter(n -> n%number == 0).collect(toList());
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -132,5 +136,8 @@ public class Main {
         System.out.println("Agrupa pares e ímpares: " + juntaListas(separaParidade(numeros,0),separaParidade(numeros,1)));
         System.out.println("Filtrar primos da lista: " + filtrarPrimos(numeros));
         System.out.println("Lista redundante: " + (todosIguais(numeros) ? "Sim" : "Não"));
+        System.out.println("Soma dos divisiveis 3 e 5: " + juntaListas(divisiveis(numeros,3),
+                                                                        divisiveis(numeros,5))
+                                                                        .stream().reduce(0, Integer::sum));
     }
 }
