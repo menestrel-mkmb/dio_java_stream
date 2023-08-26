@@ -87,7 +87,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
+        List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3, -3);
 
         System.out.println(ordenaLista(numeros));
         System.out.println(somaParesLista(numeros));
@@ -104,5 +104,6 @@ public class Main {
         System.out.println("Produto da lista: " + numeros.stream().reduce(1, (n1, n2) -> n1*n2 ));
         System.out.println("Filtrar intervalo: " + filtrarIntervalo(numeros, 4, 9));
         System.out.println("Filtrar maior primo: " + filtrarPrimos(numeros).stream().max(Comparator.naturalOrder()));
+        System.out.println("Contém negativo? " + (verificaSeAlgumNegativo(numeros) ? "Sim" : "Não"));
     }
 }
