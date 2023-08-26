@@ -63,6 +63,13 @@ public class Main {
          return list.stream().map(n -> n*n).collect(toList());
     }
 
+    public static List<Integer> filtrarIntervalo(List<Integer> list, int min, int max) {
+        return list.stream()
+                .filter(n -> n > min)
+                .filter(n -> n < max)
+                .collect(toList());
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -79,5 +86,6 @@ public class Main {
         System.out.println("Agrupar múltiplos de 3 e 5: " + juntarMultiplosDes10(numeros));
         System.out.println("Soma dos quadrados: " + quadrados(numeros).stream().reduce(0, Integer::sum));
         System.out.println("Produto da lista: " + numeros.stream().reduce(1, (n1, n2) -> n1*n2 ));
+        System.out.println("Filtrar intervalo: " + filtrarIntervalo(numeros, 4, 9));
     }
 }
