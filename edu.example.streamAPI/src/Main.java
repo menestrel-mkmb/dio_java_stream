@@ -49,6 +49,16 @@ public class Main {
         return list.stream().distinct().toList().size() == list.size();
     }
 
+    public static List<Integer> agruparMultiplos(List<Integer> list, int multiplo) {
+        return list.stream().filter(n -> n%multiplo == 0 && n%2 == 1).collect(toList());
+    }
+    public static List<Integer> juntarMultiplosDes10(List<Integer> numeros) {
+        List<Integer> agrupado = new ArrayList<>();
+        agrupado.addAll(agruparMultiplos(numeros, 3));
+        agrupado.addAll(agruparMultiplos(numeros, 5));
+        return agrupado.stream().distinct().sorted().collect(toList());
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -62,5 +72,6 @@ public class Main {
                                                                                 .skip(1).collect(toList())));
         System.out.println("Soma de todos os dígitos: " + somaTodosDigitos(numeros));
         System.out.println("Todos são distintos? " + (todosDistintos(numeros) ? "Sim" : "Não"));
+        System.out.println("Agrupar múltiplos de 3 e 5: " + juntarMultiplosDes10(numeros));
     }
 }
