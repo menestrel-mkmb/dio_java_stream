@@ -78,5 +78,6 @@ public class Main {
         System.out.println("Todos são distintos? " + (todosDistintos(numeros) ? "Sim" : "Não"));
         System.out.println("Agrupar múltiplos de 3 e 5: " + juntarMultiplosDes10(numeros));
         System.out.println("Soma dos quadrados: " + quadrados(numeros).stream().reduce(0, Integer::sum));
+        System.out.println("Produto da lista: " + numeros.stream().reduce(1, (n1, n2) -> n1*n2 ));
     }
 }
