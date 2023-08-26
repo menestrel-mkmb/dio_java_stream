@@ -73,6 +73,7 @@ public class Main {
     public static List<Integer> filtrarPrimos(List<Integer> list) {
         List<Integer> primes = new ArrayList<>();
         for(Integer numb : list) {
+            if(numb < 0) continue;
             boolean prime = true;
             for(int n = 2; n <= numb/2; n++) {
                 if(numb%n == 0){
@@ -104,7 +105,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3, -3);
+        List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
         System.out.println(ordenaLista(numeros));
         System.out.println(somaParesLista(numeros));
@@ -124,5 +125,6 @@ public class Main {
         System.out.println("Contém negativo? " + (verificaSeAlgumNegativo(numeros) ? "Sim" : "Não"));
         System.out.println("Calcula fatorial: " + fatorial(5));
         System.out.println("Agrupa pares e ímpares: " + juntaListas(separaParidade(numeros,0),separaParidade(numeros,1)));
+        System.out.println("Filtrar primos da lista: " + filtrarPrimos(numeros));
     }
 }
