@@ -86,6 +86,12 @@ public class Main {
         return primes;
     }
 
+    public static int fatorial(int numb) {
+        int fat = 1;
+        for(int n=1; n<=numb; n++) { fat*=n; }
+        return fat;
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3, -3);
 
@@ -105,5 +111,7 @@ public class Main {
         System.out.println("Filtrar intervalo: " + filtrarIntervalo(numeros, 4, 9));
         System.out.println("Filtrar maior primo: " + filtrarPrimos(numeros).stream().max(Comparator.naturalOrder()));
         System.out.println("Contém negativo? " + (verificaSeAlgumNegativo(numeros) ? "Sim" : "Não"));
+        System.out.println("Calcula fatorial: " + fatorial(5));
+
     }
 }
