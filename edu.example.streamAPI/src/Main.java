@@ -70,6 +70,22 @@ public class Main {
                 .collect(toList());
     }
 
+    public static List<Integer> filtrarPrimos(List<Integer> list) {
+        List<Integer> primes = new ArrayList<>();
+        for(Integer numb : list) {
+            boolean prime = true;
+            for(int n = 2; n <= numb/2; n++) {
+                if(numb%n == 0){
+                    prime = false;
+                    break;
+                }
+            }
+            if(prime) primes.add(numb);
+        }
+
+        return primes;
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -87,5 +103,6 @@ public class Main {
         System.out.println("Soma dos quadrados: " + quadrados(numeros).stream().reduce(0, Integer::sum));
         System.out.println("Produto da lista: " + numeros.stream().reduce(1, (n1, n2) -> n1*n2 ));
         System.out.println("Filtrar intervalo: " + filtrarIntervalo(numeros, 4, 9));
+        System.out.println("Filtrar maior primo: " + filtrarPrimos(numeros).stream().max(Comparator.naturalOrder()));
     }
 }
