@@ -92,6 +92,17 @@ public class Main {
         return fat;
     }
 
+    public static List<Integer> separaParidade(List<Integer> list, int resto) {
+        return list.stream().filter(n -> n%2 == resto).collect(toList());
+    }
+
+    public static List<Integer> juntaListas(List<Integer> list1, List<Integer> list2) {
+        List<Integer> result = new ArrayList<>();
+        result.addAll(list1);
+        result.addAll(list2);
+        return result;
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3, -3);
 
@@ -112,6 +123,6 @@ public class Main {
         System.out.println("Filtrar maior primo: " + filtrarPrimos(numeros).stream().max(Comparator.naturalOrder()));
         System.out.println("Contém negativo? " + (verificaSeAlgumNegativo(numeros) ? "Sim" : "Não"));
         System.out.println("Calcula fatorial: " + fatorial(5));
-
+        System.out.println("Agrupa pares e ímpares: " + juntaListas(separaParidade(numeros,0),separaParidade(numeros,1)));
     }
 }
