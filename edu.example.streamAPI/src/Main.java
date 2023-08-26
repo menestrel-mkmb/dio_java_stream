@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
+import static javax.swing.UIManager.get;
 
 public class Main {
     public static List<Integer> ordenaLista(List<Integer> list) {
@@ -104,6 +105,10 @@ public class Main {
         return result;
     }
 
+    public static boolean todosIguais(List<Integer> list) {
+        return Collections.frequency(list, list.get(0)) == list.size();
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -126,5 +131,6 @@ public class Main {
         System.out.println("Calcula fatorial: " + fatorial(5));
         System.out.println("Agrupa pares e ímpares: " + juntaListas(separaParidade(numeros,0),separaParidade(numeros,1)));
         System.out.println("Filtrar primos da lista: " + filtrarPrimos(numeros));
+        System.out.println("Lista redundante: " + (todosIguais(numeros) ? "Sim" : "Não"));
     }
 }
