@@ -38,6 +38,13 @@ public class Main {
         return list.stream().anyMatch(n -> n>num);
     }
 
+    public static int somaTodosDigitos(List<Integer> list) {
+        char[] charArray = list.toString().toCharArray();
+        int digitos = 0;
+        for(char c : charArray) { if(Character.isDigit(c)) digitos += Character.getNumericValue(c); }
+        return digitos;
+    }
+
     public static void main(String[] args) {
         List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
 
@@ -49,6 +56,6 @@ public class Main {
         System.out.println("Algum item da lista é maior que 10? " + ((verificaMaior(numeros, 10)) ? "Sim" : "Não"));
         System.out.println("2º Número máximo: " + retornaMaximo(ordenaListaReverso(numeros).stream()
                                                                                 .skip(1).collect(toList())));
-
+        System.out.println("Soma de todos os dígitos: " + somaTodosDigitos(numeros));
     }
 }
